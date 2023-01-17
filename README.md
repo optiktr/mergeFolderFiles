@@ -5,15 +5,6 @@ Merge Folder Text File
 Bu kod, JavaScript ile yazılmış bir dosya yükleme sistemidir. Kod, kullanıcının yüklediği dosyaları okur ve içeriğini birleştirir. Birleştirilen içerik, textarea elementine atanır ve kullanıcıya görüntülenir.
 
 Anahtar kavramlar:
-
-JavaScript: Kodun yazıldığı programlama dili. JavaScript ile kullanıcının yüklediği dosyaları okuyarak ve işleyerek işlem yapılmaktadır.
-
-Dosya yükleme sistemi: Kodun temel amacı, kullanıcının yüklediği dosyaları okuyarak ve içeriğini birleştirerek bir dosya yükleme sistemi oluşturmaktır.
-
-Dosya içeriği birleştirme: Kod, kullanıcının yüklediği dosyaları okuyarak içeriğini birleştirir. Bu işlem sonucunda, tüm dosyaların içeriği tek bir dosya içerisinde birleştirilir.
-
-Textarea elementi: Birleştirilen dosya içeriği, textarea elementine atanır ve kullanıcıya görüntülenir.
-
 Dosya okuma: Kod, kullanıcının yüklediği dosyaları okumak.
 
 Bu kod parçacığı, ayrıca okunan dosya içerisinde ki tüm boş satırları, "//" ile başlayan satırları ve "/* ile başlayıp "*/" biten metinleri siler. Bu işlem, dosya içeriğini daha okunaklı ve anlaşılır hale getirmek için yapılır.
