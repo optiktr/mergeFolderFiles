@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Folder (PHP,TXT All...)</title>
+</head>
+<body>
+
+    <form id="upload-form" enctype="multipart/form-data">
+        <input type="checkbox" id="bosluklar">Remove Space</input><br>
+        <input type="checkbox" id="yorum1"></input>Remove // Comment Line<br>
+        <input type="checkbox" id="yorum2"></input>Remove /* Comment Line */ <br><br><br>
+      <input type="file" id="file-input" accept="" webkitdirectory multiple><br>
+      <button type="submit">Upload</button><br>
+
+
+    </form>
+<br>
+    <textarea id="icerik" style="width: 500px; height: 500px;"></textarea>
+    
+
+    <script>
+        const form = document.getElementById("upload-form");
+        const fileInput = document.getElementById("file-input");
+        
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const files = fileInput.files;
+          let mergedText = "";
+          for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            let fileText = await readFile(file);
+            fileText = fileText.replace(/(?:\r\n|\r|\n)/g, ''); 
+            fileText = fileText.replace(/\/\/.*/g, "");
+            fileText = fileText.replace(/\/\*[\s\S]*?\*\//g, ""); /
+            mergedText += "//This code belong to '"+ file.name + "' file.\n" + fileText + (i !== files.length - 1 ? "\n" : "");
+          }
+          console.log(mergedText);
+          document.getElementById("icerik").value = mergedText;
+        });
+        
+        async function readFile(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsText(file);
+          });
+        }
+        </script>
+        
+</body>
+</html>
